@@ -1,116 +1,36 @@
-/* Container */
-.hp3-container {
-  display: flex;
-  justify-content: center;
-  margin: 32px auto;
-  max-width: 1000px;
-  padding: 0 16px;
-}
-
-.hp3-image {
+.hp3-preview img {
   width: 100%;
   max-width: 600px;
-  border-radius: 16px;
+  margin: auto;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-.hp3-image:hover {
-  transform: scale(1.03);
-}
-
-/* Modal */
-.hp3-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
+  display: block;
 }
 
 .hp3-modal {
-  background: #fff;
-  border-radius: 16px;
-  padding: 16px;
-  width: 90%;
-  max-width: 960px;
-  max-height: 90vh;
-  overflow-y: auto;
-  animation: modalFadeIn 0.3s ease-in-out;
-  position: relative;
-}
-
-@keyframes modalFadeIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Close Button */
-.hp3-close-btn {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #444;
-}
-
-/* Scrollable Image Gallery */
-.hp3-gallery-scroll {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
   display: flex;
-  overflow-x: auto;
-  gap: 16px;
-  padding: 12px 0;
-  scroll-snap-type: x mandatory;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-.hp3-gallery-scroll::-webkit-scrollbar {
-  height: 8px;
+.hp3-gallery {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
-.hp3-gallery-scroll::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 8px;
-}
-
-.hp3-gallery-img {
-  height: 240px;
-  min-width: 280px;
-  flex-shrink: 0;
-  border-radius: 12px;
+.hp3-gallery img {
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  scroll-snap-align: start;
-  transition: transform 0.3s ease;
-}
-
-.hp3-gallery-img:hover {
-  transform: scale(1.03);
-}
-
-/* Responsive Tweak */
-@media (max-width: 640px) {
-  .hp3-gallery-img {
-    height: 180px;
-    min-width: 220px;
-  }
-
-  .hp3-close-btn {
-    font-size: 24px;
-  }
-
-  .hp3-modal {
-    padding: 12px;
-  }
+  border-radius: 0.375rem;
 }

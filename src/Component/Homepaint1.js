@@ -10,24 +10,16 @@ const Homepaint1 = () => {
   const [showPromise, setShowPromise] = useState(true);
   const faqRef = useRef(null);
 
-  // ✅ Fix: Safe use of faqRef inside useEffect
   useEffect(() => {
     const el = faqRef.current;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowPromise(!entry.isIntersecting);
-      },
+      ([entry]) => setShowPromise(!entry.isIntersecting),
       { threshold: 0.3 }
     );
-
     if (el) observer.observe(el);
-
-    return () => {
-      if (el) observer.unobserve(el);
-    };
+    return () => el && observer.unobserve(el);
   }, []);
 
-  // Auto-slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
@@ -50,7 +42,7 @@ const Homepaint1 = () => {
               <p>✓ Hassle Free Booking</p>
               <p>✓ Transparent Pricing</p>
             </div>
-            <img src="/logo.webp" alt="UC Logo" className="uc-promise-logo" />
+            <img src="/logo.webp" alt="UC Logo" className="uc-promise-logo" loading="lazy" />
           </div>
         </div>
       )}
@@ -59,21 +51,30 @@ const Homepaint1 = () => {
         <img
           src={images[current]}
           alt={`Slide ${current + 1}`}
-          className="slider-image-full fade"
+          className="slider-image-full"
+          loading="lazy"
         />
-        <button onClick={prevImage} className="slider-button-full left">
+        <button
+          onClick={prevImage}
+          className="slider-button-full left"
+          aria-label="Previous Slide"
+        >
           <ChevronLeft size={28} />
         </button>
-        <button onClick={nextImage} className="slider-button-full right">
+        <button
+          onClick={nextImage}
+          className="slider-button-full right"
+          aria-label="Next Slide"
+        >
           <ChevronRight size={28} />
         </button>
-
         <div className="slider-dots-full">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => goToImage(index)}
               className={`dot-full ${current === index ? 'active' : ''}`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>

@@ -1,17 +1,14 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
-import './style/Footer.css'; // Update path if needed
+import './style/Homepaint1.css';
 
 const Footer = () => {
   return (
     <footer className="uc-footer">
       <div className="uc-footer-grid">
-        {/* UC Logo */}
         <div className="uc-footer-logo">
-          <img src="/footer1.webp" alt="Urban Company Logo" />
+          <img src="/footer1.webp" alt="Urban Company Logo" loading="lazy" />
         </div>
-
-        {/* Company */}
         <div className="uc-footer-col">
           <h3>Company</h3>
           <ul>
@@ -24,8 +21,6 @@ const Footer = () => {
             <li><a href="/careers">Careers</a></li>
           </ul>
         </div>
-
-        {/* For Customers */}
         <div className="uc-footer-col">
           <h3>For customers</h3>
           <ul>
@@ -34,34 +29,32 @@ const Footer = () => {
             <li><a href="/contact">Contact us</a></li>
           </ul>
         </div>
-
-        {/* Professionals, Social & Apps */}
         <div className="uc-footer-col">
           <h3>For professionals</h3>
           <ul>
             <li><a href="/register">Register as a professional</a></li>
           </ul>
-
           <h3 className="uc-footer-social-title">Social links</h3>
           <div className="uc-footer-social">
-            <Twitter className="uc-icon twitter" />
-            <Facebook className="uc-icon facebook" />
-            <Instagram className="uc-icon instagram" />
-            <Linkedin className="uc-icon linkedin" />
+            <Twitter className="uc-icon twitter" aria-label="Twitter" />
+            <Facebook className="uc-icon facebook" aria-label="Facebook" />
+            <Instagram className="uc-icon instagram" aria-label="Instagram" />
+            <Linkedin className="uc-icon linkedin" aria-label="LinkedIn" />
           </div>
-
           <div className="uc-footer-apps">
-            <img src="/footer2.webp" alt="Download on App Store" />
-            <img src="/footer3.webp" alt="Get it on Google Play" />
+            <img src="/footer2.webp" alt="Download on App Store" loading="lazy" />
+            <img src="/footer3.webp" alt="Get it on Google Play" loading="lazy" />
           </div>
-
-          {/* Newsletter */}
           <h3 className="uc-footer-social-title">Subscribe</h3>
-          <input type="email" className="newsletter-input" placeholder="Your email" />
+          <input
+            type="email"
+            className="newsletter-input"
+            placeholder="Your email"
+            aria-label="Email for newsletter"
+          />
           <button className="newsletter-btn">Subscribe</button>
         </div>
       </div>
-
       <div className="uc-footer-bottom">
         <p>* As on December 31, 2024</p>
         <p className="uc-footer-copy">

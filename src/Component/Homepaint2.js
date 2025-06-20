@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import Homepaint3 from './Homepaint3';
-import './style/Homepaint2.css';
+import './style/Homepaint1.css';
 
 const Homepaint2 = () => {
   const [count, setCount] = useState(0);
@@ -16,11 +16,9 @@ const Homepaint2 = () => {
     <>
       <div className="hp2-container">
         <div className="hp2-wrapper">
-          {/* Left Box */}
           <div className="hp2-left">
             <h1 className="hp2-title">Full Home Painting Consultation</h1>
             <p className="hp2-rating">★ 4.78 (30K reviews)</p>
-
             <div className="hp2-counter">
               {count === 0 ? (
                 <button onClick={handleAdd} className="hp2-add-btn">
@@ -34,12 +32,11 @@ const Homepaint2 = () => {
                 </div>
               )}
             </div>
-
-            <p className="hp2-price">₹49 <span className="dot">•</span> 60 mins</p>
+            <p className="hp2-price">
+              ₹49 <span className="dot">•</span> 60 mins
+            </p>
             <div className="hp2-line"></div>
           </div>
-
-          {/* Right Box */}
           <div className="hp2-right">
             <div className="hp2-offer">
               <CheckCircle className="icon green" />
@@ -54,7 +51,6 @@ const Homepaint2 = () => {
                 )}
               </div>
             </div>
-
             {showAmazonOffer && (
               <>
                 <div className="hp2-offer">
@@ -73,8 +69,6 @@ const Homepaint2 = () => {
           </div>
         </div>
       </div>
-
-      {/* Proceed Button */}
       {count > 0 && (
         <div className="hp2-proceed-container">
           <div className="hp2-proceed-btn">
@@ -82,7 +76,6 @@ const Homepaint2 = () => {
           </div>
         </div>
       )}
-
       <Homepaint3 />
     </>
   );
