@@ -10,17 +10,20 @@ const Homepaint1 = () => {
   const [showPromise, setShowPromise] = useState(true);
   const faqRef = useRef(null);
 
-  // Hide UC Promise when FAQ appears
+  // ✅ Fix: Safe use of faqRef inside useEffect
   useEffect(() => {
+    const el = faqRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setShowPromise(!entry.isIntersecting);
       },
       { threshold: 0.3 }
     );
-    if (faqRef.current) observer.observe(faqRef.current);
+
+    if (el) observer.observe(el);
+
     return () => {
-      if (faqRef.current) observer.unobserve(faqRef.current);
+      if (el) observer.unobserve(el);
     };
   }, []);
 
