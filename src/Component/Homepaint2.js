@@ -71,9 +71,10 @@ const Homepaint2 = () => {
       </div>
       {count > 0 && (
         <div className="hp2-proceed-container">
-          <div className="hp2-proceed-btn">
+          <button className="hp2-proceed-btn" onClick={() => console.log('Proceed clicked')}>
+            {/* Placeholder onClick; replace with actual logic */}
             <p className="hp2-proceed-text">Proceed</p>
-          </div>
+          </button>
         </div>
       )}
       <Homepaint3 />

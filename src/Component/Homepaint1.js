@@ -7,18 +7,7 @@ import './style/Homepaint1.css';
 const Homepaint1 = () => {
   const images = ['/Slaider2.gif', '/slaider1.webp'];
   const [current, setCurrent] = useState(0);
-  const [showPromise, setShowPromise] = useState(true);
   const faqRef = useRef(null);
-
-  useEffect(() => {
-    const el = faqRef.current;
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowPromise(!entry.isIntersecting),
-      { threshold: 0.3 }
-    );
-    if (el) observer.observe(el);
-    return () => el && observer.unobserve(el);
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,20 +22,6 @@ const Homepaint1 = () => {
 
   return (
     <>
-      {showPromise && (
-        <div className="uc-promise-box">
-          <p className="uc-promise-title">UC Promise</p>
-          <div className="uc-promise-content">
-            <div className="uc-promise-text">
-              <p>✓ Verified Professionals</p>
-              <p>✓ Hassle Free Booking</p>
-              <p>✓ Transparent Pricing</p>
-            </div>
-            <img src="/logo.webp" alt="UC Logo" className="uc-promise-logo" loading="lazy" />
-          </div>
-        </div>
-      )}
-
       <div className="homepaint1-slider-full">
         <img
           src={images[current]}

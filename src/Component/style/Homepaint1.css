@@ -37,7 +37,7 @@
 .homepaint1-slider-full {
   position: relative;
   width: 100%;
-  height: 90vh; /* Slightly taller for immersion */
+  height: 90vh;
   background-color: var(--neutral-100);
   overflow: hidden;
 }
@@ -47,7 +47,7 @@
   height: 100%;
   object-fit: cover;
   transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-  transform: scale(1.02); /* Subtle zoom effect */
+  transform: scale(1.02);
 }
 
 .slider-button-full {
@@ -104,6 +104,87 @@
   transform: scale(1.3);
 }
 
+/* Mobile Responsive Adjustments for Slider */
+@media (max-width: 768px) {
+  .homepaint1-slider-full {
+    height: 70vh;
+  }
+
+  .slider-button-full {
+    padding: 12px;
+    left: 16px;
+  }
+
+  .slider-button-full.right {
+    right: 16px;
+  }
+
+  .slider-dots-full {
+    bottom: 24px;
+    gap: 12px;
+  }
+
+  .dot-full {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .homepaint1-slider-full {
+    height: 60vh;
+  }
+
+  .slider-image-full {
+    object-fit: contain;
+    transform: scale(1);
+  }
+
+  .slider-button-full {
+    padding: 10px;
+    left: 12px;
+  }
+
+  .slider-button-full.right {
+    right: 12px;
+  }
+
+  .slider-dots-full {
+    bottom: 16px;
+    gap: 8px;
+  }
+
+  .dot-full {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepaint1-slider-full {
+    height: 50vh;
+  }
+
+  .slider-button-full {
+    padding: 8px;
+    left: 8px;
+  }
+
+  .slider-button-full.right {
+    right: 8px;
+  }
+
+  .slider-dots-full {
+    bottom: 12px;
+    gap: 6px;
+  }
+
+  .dot-full {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 .uc-promise-box {
   position: fixed;
   top: 100px;
@@ -154,79 +235,80 @@
 
 /* Homepaint2: Service Section */
 .hp2-container {
-  padding: var(--spacing-lg);
-  max-width: 1440px; /* Wider for modern screens */
+  padding: var(--spacing-sm); /* Reduced from --spacing-md */
+  max-width: 1440px;
   margin: 0 auto;
 }
 
 .hp2-wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xs); /* Reduced from --spacing-md */
 }
 
 @media (min-width: 1024px) {
   .hp2-wrapper {
     grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xs); /* Tighter gap for larger screens */
   }
 }
 
 .hp2-left {
   background: var(--white);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-sm); /* Reduced from --spacing-md */
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(4px);
 }
 
 .hp2-title {
-  font-size: 28px;
+  font-size: 22px; /* Reduced from 24px */
   font-weight: 700;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs); /* Same, minimal margin */
   color: var(--neutral-900);
 }
 
 .hp2-rating {
-  font-size: 15px;
+  font-size: 13px; /* Reduced from 14px */
   color: var(--neutral-500);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-xs); /* Reduced from --spacing-sm */
 }
 
 .hp2-counter {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xs); /* Reduced from --spacing-sm */
 }
 
 .hp2-add-btn {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: var(--white);
-  padding: 12px 28px;
-  border-radius: 10px;
+  padding: 8px 20px; /* Reduced from 10px 24px */
+  border-radius: 6px; /* Reduced from 8px */
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px; /* Reduced from 15px */
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .hp2-add-btn:hover {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-  transform: translateY(-3px);
+  transform: translateY(-1px); /* Reduced transform */
   box-shadow: var(--shadow);
 }
 
 .hp2-counter-box {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px; /* Reduced from 12px */
 }
 
 .hp2-btn {
   background: var(--neutral-100);
-  font-size: 20px;
-  padding: 10px 18px;
-  border-radius: 8px;
+  font-size: 16px; /* Reduced from 18px */
+  padding: 6px 14px; /* Reduced from 8px 16px */
+  border-radius: 4px; /* Reduced from 6px */
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -235,61 +317,61 @@
 .hp2-btn:hover {
   background: var(--neutral-500);
   color: var(--white);
-  transform: scale(1.12);
+  transform: scale(1.08); /* Reduced from 1.1 */
 }
 
 .hp2-count {
-  font-size: 18px;
+  font-size: 14px; /* Reduced from 16px */
   font-weight: 700;
   color: var(--neutral-900);
 }
 
 .hp2-price {
-  font-size: 16px;
+  font-size: 14px; /* Reduced from 15px */
   color: var(--neutral-700);
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-xs); /* Reduced from --spacing-sm */
 }
 
 .dot {
   color: var(--neutral-500);
-  margin: 0 6px;
+  margin: 0 3px; /* Reduced from 4px */
 }
 
 .hp2-line {
-  height: 8px;
+  height: 4px; /* Reduced from 6px */
   width: 100%;
   background: var(--neutral-200);
-  border-radius: 6px;
-  margin: var(--spacing-lg) 0;
+  border-radius: 3px; /* Reduced from 4px */
+  margin: var(--spacing-xs) 0; /* Reduced from --spacing-sm */
 }
 
 .hp2-right {
   background: var(--white);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-sm); /* Reduced from --spacing-md */
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
-  max-height: 400px;
+  max-height: 300px; /* Reduced from 350px */
   overflow-y: auto;
 }
 
 @media (min-width: 1024px) {
   .hp2-right {
     position: sticky;
-    top: 120px;
+    top: 80px; /* Reduced from 100px */
   }
 }
 
 .hp2-offer {
   display: flex;
-  gap: 16px;
+  gap: 8px; /* Reduced from 12px */
   align-items: flex-start;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-xs); /* Reduced from --spacing-sm */
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
-  margin-top: 4px;
+  width: 18px; /* Reduced from 20px */
+  height: 18px;
+  margin-top: 3px; /* Reduced from 4px */
 }
 
 .icon.green {
@@ -297,55 +379,55 @@
 }
 
 .icon.small {
-  width: 18px;
-  height: 18px;
+  width: 14px; /* Reduced from 16px */
+  height: 14px;
 }
 
 .hp2-offer-title {
-  font-size: 16px;
+  font-size: 14px; /* Reduced from 15px */
   font-weight: 600;
   color: var(--neutral-900);
 }
 
 .hp2-offer-sub {
-  font-size: 14px;
+  font-size: 12px; /* Reduced from 13px */
   color: var(--neutral-500);
-  line-height: 1.5;
+  line-height: 1.3; /* Reduced from 1.4 */
 }
 
 .hp2-toggle {
   display: flex;
-  gap: 8px;
+  gap: 4px; /* Reduced from 6px */
   color: var(--primary);
   cursor: pointer;
-  font-size: 15px;
+  font-size: 13px; /* Reduced from 14px */
   align-items: center;
-  margin-top: var(--spacing-sm);
+  margin-top: var(--spacing-xs); /* Same, minimal */
   transition: all 0.3s ease;
 }
 
 .hp2-toggle:hover {
   color: var(--primary-dark);
   text-decoration: underline;
-  transform: translateX(6px);
+  transform: translateX(3px); /* Reduced from 4px */
 }
 
 .hp2-toggle.indent {
-  padding-left: 40px;
+  padding-left: 24px; /* Reduced from 32px */
 }
 
 .hp2-proceed-container {
   display: flex;
   justify-content: flex-end;
-  margin: var(--spacing-lg) 0;
-  padding-right: 48px;
+  margin: var(--spacing-sm) 0; /* Reduced from --spacing-md */
+  padding-right: 24px; /* Reduced from 32px */
 }
 
 .hp2-proceed-btn {
   background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-  width: 300px;
-  height: 48px;
-  border-radius: 12px;
+  width: 240px; /* Reduced from 260px */
+  height: 40px; /* Reduced from 44px */
+  border-radius: 8px; /* Reduced from 10px */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -356,16 +438,15 @@
 
 .hp2-proceed-btn:hover {
   background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px); /* Reduced from -2px */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Reduced shadow */
 }
 
 .hp2-proceed-text {
   color: var(--white);
-  font-size: 16px;
+  font-size: 14px; /* Reduced from 15px */
   font-weight: 600;
 }
-
 /* Homepaint3 & Homepaint4: Image Preview with Modal */
 .hp3-container {
   display: flex;
@@ -819,10 +900,6 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .homepaint1-slider-full {
-    height: 70vh;
-  }
-
   .hp2-container {
     padding: var(--spacing-md);
   }
