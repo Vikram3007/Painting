@@ -22,34 +22,42 @@ const Homepaint1 = () => {
 
   return (
     <>
-      <div className="homepaint1-slider-full">
-        <img
-          src={images[current]}
-          alt={`Slide ${current + 1}`}
-          className="slider-image-full"
-          loading="lazy"
-        />
+      <div className="homepaint1-slider-full" role="region" aria-label="Image Slider">
+        {images.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`Slide ${index + 1}`}
+            className={`slider-image-full ${index === current ? 'active' : ''}`}
+            loading="lazy"
+            aria-hidden={index !== current}
+          />
+        ))}
+
         <button
           onClick={prevImage}
           className="slider-button-full left"
-          aria-label="Previous Slide"
+          aria-label="Previous slide"
         >
-          <ChevronLeft size={28} />
+          <ChevronLeft size={24} />
         </button>
         <button
           onClick={nextImage}
           className="slider-button-full right"
-          aria-label="Next Slide"
+          aria-label="Next slide"
         >
-          <ChevronRight size={28} />
+          <ChevronRight size={24} />
         </button>
-        <div className="slider-dots-full">
+
+        <div className="slider-dots-full" role="tablist">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => goToImage(index)}
               className={`dot-full ${current === index ? 'active' : ''}`}
               aria-label={`Go to slide ${index + 1}`}
+              aria-selected={current === index}
+              role="tab"
             />
           ))}
         </div>
