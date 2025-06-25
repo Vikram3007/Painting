@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Footer from './Footer';
-import './style/Homepaint1.css';
+import './style/Homepaint5.css';
 
 const Homepaint5 = ({ faqRef }) => {
   const [openIndex, setOpenIndex] = useState(null);
+  const contentRefs = useRef([]);
 
   const faqData = [
     {
@@ -37,11 +38,28 @@ const Homepaint5 = ({ faqRef }) => {
             <button
               className={`hp5-faq-question ${openIndex === index ? 'open' : ''}`}
               onClick={() => toggleFAQ(index)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') toggleFAQ(index);
+              }}
               aria-expanded={openIndex === index}
+              aria-controls={`faq-answer-${index}`}
+              id={`faq-question-${index}`}
             >
               {item.question}
             </button>
-            <p className={`hp5-faq-answer ${openIndex === index ? 'show' : ''}`}>
+            <p
+              id={`faq-answer-${index}`}
+              role="region"
+              aria-labelledby={`faq-question-${index}`}
+              ref={(el) => (contentRefs.current[index] = el)}
+              className={`hp5-faq-answer ${openIndex === index ? 'show' : ''}`}
+              style={{
+                maxHeight:
+                  openIndex === index && contentRefs.current[index]
+                    ? `${contentRefs.current[index].scrollHeight}px`
+                    : '0px',
+              }}
+            >
               {item.answer}
             </p>
           </div>

@@ -1,37 +1,70 @@
+/* FAQ Section */
 .hp5-faq {
-  padding: 2rem;
-  background-color: #f3f4f6;
-  max-width: 600px;
-  margin: auto;
-  border-radius: 1rem;
+  max-width: 720px;
+  margin: 64px auto;
+  padding: 0 var(--spacing-md);
 }
 
-.hp5-faq h2 {
+.hp5-faq-title {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: var(--spacing-lg);
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  color: var(--neutral-900);
 }
 
-.faq-item {
-  margin-bottom: 1rem;
+.hp5-faq-item {
+  border-bottom: 1px solid var(--neutral-200);
+  padding: var(--spacing-md) 0;
 }
 
-.faq-item button {
-  background: #6366f1;
-  color: white;
-  padding: 0.75rem 1rem;
-  width: 100%;
-  text-align: left;
+.hp5-faq-question {
+  font-size: 17px;
   font-weight: 600;
+  background: none;
   border: none;
-  border-radius: 0.5rem;
+  text-align: left;
+  width: 100%;
   cursor: pointer;
+  padding: var(--spacing-sm) 0;
+  position: relative;
+  color: var(--neutral-900);
+  transition: all 0.3s ease;
 }
 
-.faq-item p {
-  background: white;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  border-radius: 0.5rem;
+.hp5-faq-question:hover {
+  color: var(--primary);
+}
+
+.hp5-faq-question::after {
+  content: '▼';
+  position: absolute;
+  right: 0;
+  font-size: 16px;
+  transition: transform 0.4s ease;
+}
+
+.hp5-faq-question.open::after {
+  transform: rotate(180deg);
+}
+
+.hp5-faq-answer {
+  font-size: 15px;
+  color: var(--neutral-500);
+  margin-top: var(--spacing-sm);
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding-bottom: 0;
+}
+
+.hp5-faq-answer.show {
+  padding-bottom: var(--spacing-sm);
+}
+
+/* Optional mobile padding tweak */
+@media (max-width: 600px) {
+  .hp5-faq-question {
+    padding: 1rem 0;
+    font-size: 16px;
+  }
 }
