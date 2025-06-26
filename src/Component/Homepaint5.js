@@ -26,7 +26,7 @@ const Homepaint5 = ({ faqRef }) => {
   ];
 
   const toggleFAQ = (index) => {
-    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
@@ -36,23 +36,21 @@ const Homepaint5 = ({ faqRef }) => {
         {faqData.map((item, index) => (
           <div key={index} className="hp5-faq-item">
             <button
-              className={`hp5-faq-question ${openIndex === index ? 'open' : ''}`}
+              className="hp5-faq-question"
               onClick={() => toggleFAQ(index)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') toggleFAQ(index);
-              }}
               aria-expanded={openIndex === index}
               aria-controls={`faq-answer-${index}`}
               id={`faq-question-${index}`}
             >
               {item.question}
             </button>
-            <p
+            <div
               id={`faq-answer-${index}`}
               role="region"
               aria-labelledby={`faq-question-${index}`}
-              ref={(el) => (contentRefs.current[index] = el)}
+              aria-hidden={openIndex !== index} // Hide from screen readers when collapsed
               className={`hp5-faq-answer ${openIndex === index ? 'show' : ''}`}
+              ref={(el) => (contentRefs.current[index] = el)}
               style={{
                 maxHeight:
                   openIndex === index && contentRefs.current[index]
@@ -61,7 +59,7 @@ const Homepaint5 = ({ faqRef }) => {
               }}
             >
               {item.answer}
-            </p>
+            </div>
           </div>
         ))}
       </div>
