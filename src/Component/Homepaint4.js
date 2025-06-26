@@ -9,7 +9,7 @@ const Homepaint4 = () => {
       <div className="hp3-container">
         <img
           src="/clickimg2.webp"
-          alt="Preview"
+          alt="Previe"
           className="hp3-image"
           onClick={() => setShowModal(true)}
           loading="lazy"
