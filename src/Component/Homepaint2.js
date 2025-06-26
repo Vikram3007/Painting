@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import Homepaint3 from './Homepaint3';
-import './style/Homepaint1.css';
+import './style/Homepaint2.css';
 
 const Homepaint2 = () => {
   const [count, setCount] = useState(0);
@@ -37,6 +37,7 @@ const Homepaint2 = () => {
             </p>
             <div className="hp2-line"></div>
           </div>
+
           <div className="hp2-right">
             <div className="hp2-offer">
               <CheckCircle className="icon green" />
@@ -51,6 +52,7 @@ const Homepaint2 = () => {
                 )}
               </div>
             </div>
+
             {showAmazonOffer && (
               <>
                 <div className="hp2-offer">
@@ -69,14 +71,15 @@ const Homepaint2 = () => {
           </div>
         </div>
       </div>
+
       {count > 0 && (
         <div className="hp2-proceed-container">
           <button className="hp2-proceed-btn" onClick={() => console.log('Proceed clicked')}>
-            {/* Placeholder onClick; replace with actual logic */}
             <p className="hp2-proceed-text">Proceed</p>
           </button>
         </div>
       )}
+
       <Homepaint3 />
     </>
   );

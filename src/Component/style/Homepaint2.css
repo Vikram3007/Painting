@@ -1,39 +1,206 @@
+:root {
+  --primary: #ec4899;          /* rose pink */
+  --primary-dark: #db2777;
+  --accent: #10b981;           /* green */
+  --neutral-bg: #fdf2f8;       /* light rose background */
+  --neutral-btn: #ffe4e6;      /* soft pink for buttons */
+  --neutral-text: #1f2937;     /* dark gray text */
+  --neutral-subtext: #6b7280;  /* gray subtext */
+  --line-color: #fbcfe8;       /* pink divider */
+  --white: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --radius: 12px;
+  --spacing: 16px;
+}
+
+/* Container */
 .hp2-container {
-  padding: 2rem;
-  background: #f9fafb;
-  text-align: center;
+  background-color: var(--neutral-bg);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
+/* Layout */
+.hp2-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing);
+}
+@media (min-width: 1024px) {
+  .hp2-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Left + Right Box */
+.hp2-left{
+  background: var(--white);
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.hp2-right {
+  background-color: #87dbb4; /* 👉 new light blue background */
+  padding: var(--spacing);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* Title and rating */
 .hp2-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+.hp2-rating {
+  font-size: 14px;
+  color: var(--neutral-subtext);
+  margin-bottom: 12px;
 }
 
-.hp2-subtitle {
-  font-size: 1rem;
-  color: #6b7280;
-}
-
-.hp2-actions {
-  margin: 1.5rem 0;
+/* Counter Section */
+.hp2-counter {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+.hp2-counter-box {
+  display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 10px;
 }
-
-.hp2-actions button {
-  padding: 0.5rem 1rem;
-  background-color: #22c55e;
-  color: white;
+.hp2-count {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--neutral-text);
+}
+.hp2-btn {
+  background: var(--neutral-btn);
+  color: var(--neutral-text);
+  font-weight: 700;
+  padding: 6px 14px;
+  font-size: 18px;
   border: none;
-  border-radius: 0.375rem;
-  font-size: 1.25rem;
-  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.hp2-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
 }
 
+/* Add Button */
+.hp2-add-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.hp2-add-btn:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  transform: scale(1.05);
+}
+
+/* Price and line */
 .hp2-price {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 14px;
+  color: var(--neutral-text);
+}
+.dot {
+  color: var(--neutral-subtext);
+  margin: 0 4px;
+}
+.hp2-line {
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background: var(--line-color);
+  margin: 12px 0;
+}
+
+/* Offer Cards */
+.hp2-offer {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+.icon.green {
+  color: var(--accent);
+}
+.icon.small {
+  width: 16px;
+  height: 16px;
+}
+.hp2-offer-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--neutral-text);
+}
+.hp2-offer-sub {
+  font-size: 13px;
+  color: var(--neutral-subtext);
+  line-height: 1.3;
+}
+
+/* Toggle */
+.hp2-toggle {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--primary-dark);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.hp2-toggle:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+.hp2-toggle.indent {
+  padding-left: 24px;
+}
+
+/* Proceed Button */
+.hp2-proceed-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+  padding-right: 24px;
+}
+.hp2-proceed-btn {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  border: none;
+  padding: 10px 32px;
+  border-radius: 9999px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.hp2-proceed-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  transform: translateY(-2px);
+}
+.hp2-proceed-text {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
 }

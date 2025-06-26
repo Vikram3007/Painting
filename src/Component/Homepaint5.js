@@ -1,4 +1,6 @@
-import React, { useState, useRef } from 'react';
+// src/Component/Homepaint5.js
+
+import React, { useState, useRef, useEffect } from 'react';
 import Footer from './Footer';
 import './style/Homepaint5.css';
 
@@ -48,13 +50,13 @@ const Homepaint5 = ({ faqRef }) => {
               id={`faq-answer-${index}`}
               role="region"
               aria-labelledby={`faq-question-${index}`}
-              aria-hidden={openIndex !== index} // Hide from screen readers when collapsed
+              aria-hidden={openIndex !== index}
               className={`hp5-faq-answer ${openIndex === index ? 'show' : ''}`}
               ref={(el) => (contentRefs.current[index] = el)}
               style={{
                 maxHeight:
                   openIndex === index && contentRefs.current[index]
-                    ? `${contentRefs.current[index].scrollHeight}px`
+                    ? `${contentRefs.current[index].scrollHeight + 40}px`
                     : '0px',
               }}
             >
