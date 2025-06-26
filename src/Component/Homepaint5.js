@@ -1,6 +1,6 @@
 // src/Component/Homepaint5.js
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef,} from 'react';
 import Footer from './Footer';
 import './style/Homepaint5.css';
 
