@@ -16,14 +16,13 @@ const Homepaint2 = () => {
     <>
       <div className="hp2-container">
         <div className="hp2-wrapper">
+          {/* LEFT */}
           <div className="hp2-left">
             <h1 className="hp2-title">Full Home Painting Consultation</h1>
             <p className="hp2-rating">★ 4.78 (30K reviews)</p>
             <div className="hp2-counter">
               {count === 0 ? (
-                <button onClick={handleAdd} className="hp2-add-btn">
-                  Add
-                </button>
+                <button onClick={handleAdd} className="hp2-add-btn">Add</button>
               ) : (
                 <div className="hp2-counter-box">
                   <button onClick={handleDecrement} className="hp2-btn">–</button>
@@ -32,12 +31,11 @@ const Homepaint2 = () => {
                 </div>
               )}
             </div>
-            <p className="hp2-price">
-              ₹49 <span className="dot">•</span> 60 mins
-            </p>
+            <p className="hp2-price">₹49 <span className="dot">•</span> 60 mins</p>
             <div className="hp2-line"></div>
           </div>
 
+          {/* RIGHT */}
           <div className="hp2-right">
             <div className="hp2-offer">
               <CheckCircle className="icon green" />

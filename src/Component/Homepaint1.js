@@ -1,70 +1,43 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Homepaint2 from './Homepaint2';
-import Homepaint5 from './Homepaint5';
+import React from 'react';
 import './style/Homepaint1.css';
+import Homepaint2 from './Homepaint2';
 
 const Homepaint1 = () => {
-  const images = ['/Slaider2.gif', '/slaider1.webp'];
-  const [current, setCurrent] = useState(0);
-  const faqRef = useRef(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  const nextImage = () => setCurrent((prev) => (prev + 1) % images.length);
-  const prevImage = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
-  const goToImage = (index) => setCurrent(index);
-
   return (
     <>
-      <div className="homepaint1-slider-full" role="region" aria-label="Image Slider">
-        {images.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`Slide ${index + 1}`}
-            className={`slider-image-full ${index === current ? 'active' : ''}`}
-            loading="lazy"
-            aria-hidden={index !== current}
-          />
-        ))}
+      <section className="hp1-container">
+        {/* Left Side */}
+        <div className="hp1-left">
+          <h1 className="hp1-title">Full Home Painting</h1>
 
-        <button
-          onClick={prevImage}
-          className="slider-button-full left"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={nextImage}
-          className="slider-button-full right"
-          aria-label="Next slide"
-        >
-          <ChevronRight size={24} />
-        </button>
+          <div className="hp1-room-block">
+            <img src="kitchen1.jpg" alt="Kitchen Interior" className="hp1-room-logo" />
+            <p className="hp1-description">Kitchen</p>
+          </div>
 
-        <div className="slider-dots-full" role="tablist">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToImage(index)}
-              className={`dot-full ${current === index ? 'active' : ''}`}
-              aria-label={`Go to slide ${index + 1}`}
-              aria-selected={current === index}
-              role="tab"
-            />
-          ))}
+          <div className="hp1-room-block">
+            <img src="restroom1.webp" alt="Restroom Interior" className="hp1-room-logo" />
+            <p className="hp1-description">Restroom</p>
+          </div>
+
+          <div className="hp1-room-block">
+            <img src="bedroom.jpg" alt="Bedroom Interior" className="hp1-room-logo" />
+            <p className="hp1-description">Bedroom</p>
+          </div>
+
+          <div className="hp1-btn-group">
+            <button type="button" className="hp1-btn-primary">Book Free Consultation</button>
+            <button type="button" className="hp1-btn-secondary">View Services</button>
+          </div>
         </div>
-      </div>
+
+        {/* Right Side */}
+        <div className="hp1-right">
+          <img src="home1 .jpg" alt="Home Painting Example" className="hp1-image" />
+        </div>
+      </section>
 
       <Homepaint2 />
-      <Homepaint5 faqRef={faqRef} />
     </>
   );
 };

@@ -1,29 +1,29 @@
-// src/Component/Homepaint5.js
-
-import React, { useState, useRef,} from 'react';
-import Footer from './Footer';
+import React, { useState } from 'react';
 import './style/Homepaint5.css';
 
-const Homepaint5 = ({ faqRef }) => {
+const Homepaint5 = () => {
   const [openIndex, setOpenIndex] = useState(null);
-  const contentRefs = useRef([]);
 
   const faqData = [
     {
-      question: 'What services do you offer?',
-      answer: 'We offer complete home painting services including interior, exterior, and texture painting.',
+      question: 'How long does full home painting take?',
+      answer: 'For a standard 2BHK house, it usually takes 2 to 5 days depending on the size and type of painting.',
     },
     {
-      question: 'How do I schedule a consultation?',
-      answer: 'You can schedule a consultation through our website contact form or by calling our customer support.',
+      question: 'Is it safe to stay at home during painting?',
+      answer: 'Yes, we ensure complete safety with room covering, furniture protection, and hygienic painting practices.',
     },
     {
-      question: 'Do you provide a warranty?',
-      answer: 'Yes, we offer up to 5 years of warranty on select painting services.',
+      question: 'Can painting be done if we are not at home?',
+      answer: 'Absolutely. Our trusted professionals can handle the entire work safely, and we clean everything before handing over.',
     },
     {
-      question: 'How long does a typical project take?',
-      answer: 'Most projects are completed within 3 to 7 days depending on the size and scope of work.',
+      question: 'Do you help in choosing colors?',
+      answer: 'Yes, we offer free color consultation and help you choose the right shades based on lighting and wall texture.',
+    },
+    {
+      question: 'How much does painting cost?',
+      answer: 'Pricing depends on the home size and paint type. We offer a free consultation and provide a detailed quotation.',
     },
   ];
 
@@ -32,41 +32,45 @@ const Homepaint5 = ({ faqRef }) => {
   };
 
   return (
-    <>
-      <div ref={faqRef} className="hp5-faq">
-        <h2 className="hp5-faq-title">Frequently Asked Questions</h2>
-        {faqData.map((item, index) => (
-          <div key={index} className="hp5-faq-item">
-            <button
-              className="hp5-faq-question"
-              onClick={() => toggleFAQ(index)}
-              aria-expanded={openIndex === index}
-              aria-controls={`faq-answer-${index}`}
-              id={`faq-question-${index}`}
-            >
-              {item.question}
-            </button>
-            <div
-              id={`faq-answer-${index}`}
-              role="region"
-              aria-labelledby={`faq-question-${index}`}
-              aria-hidden={openIndex !== index}
-              className={`hp5-faq-answer ${openIndex === index ? 'show' : ''}`}
-              ref={(el) => (contentRefs.current[index] = el)}
-              style={{
-                maxHeight:
-                  openIndex === index && contentRefs.current[index]
-                    ? `${contentRefs.current[index].scrollHeight + 40}px`
-                    : '0px',
-              }}
-            >
-              {item.answer}
-            </div>
+    <div className="homepaint5-layout">
+      {/* Contact Form Section */}
+      <div className="contact-container">
+        <h2 className="contact-title">Get in Touch</h2>
+        <p className="contact-subtitle">Have questions or need help with painting? We’re here to help.</p>
+        <form className="contact-form">
+          <div className="form-group">
+            <label htmlFor="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required />
           </div>
-        ))}
+          <div className="form-group">
+            <label htmlFor="email">Your Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Your Message</label>
+            <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" className="contact-button">Send Message</button>
+        </form>
       </div>
-      <Footer />
-    </>
+
+      {/* FAQ Section */}
+      <div className="faq-section">
+        <h2 className="faq-title">Frequently Asked Questions</h2>
+        <div className="faq-list">
+          {faqData.map((faq, index) => (
+            <div
+              key={index}
+              className={`faq-item ${openIndex === index ? 'open' : ''}`}
+              onClick={() => toggleFAQ(index)}
+            >
+              <div className="faq-question">{faq.question}</div>
+              {openIndex === index && <div className="faq-answer">{faq.answer}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

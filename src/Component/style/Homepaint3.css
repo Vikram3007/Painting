@@ -1,155 +1,198 @@
-/* Wrapper and Heading */
-.hp3-wrapper {
-  padding: 2rem;
-  background-color: #f9f9f9;
-  text-align: center;
+:root {
+  --white: #ffffff;
+  --primary: #ec4899;
+  --primary-dark: #db2777;
+  --accent: #28a745;
+  --neutral-bg: #f9fafb;
+  --neutral-text: #1f2937;
+  --neutral-subtext: #6b7280;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --radius: 8px;
+  --spacing: 10px;
+  --transition: all 0.2s ease;
 }
 
-.hp3-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  color: #1e293b;
+/* Wrapper */
+.homepaint3-wrapper {
+  padding: 1.5rem 0.5rem;
+  background: var(--neutral-bg);
+  min-height: auto; /* ✅ Remove fixed full height */
 }
 
-/* Grid Layout */
-.hp3-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
 
-/* Card Design */
-.hp3-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  overflow: hidden;
-}
-
-.hp3-card:hover {
-  transform: translateY(-5px);
-}
-
-.hp3-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.hp3-text {
-  padding: 1rem;
-}
-
-.hp3-text h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #0f172a;
-}
-
-.hp3-text p {
-  font-size: 0.95rem;
-  color: #475569;
-}
-
-/* Button */
-.hp3-button {
-  background-color: #0f172a;
-  color: white;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.hp3-button:hover {
-  background-color: #1e293b;
-}
-
-/* Backdrop for modals */
-.hp3-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+/* Container */
+.container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  z-index: 999;
+  gap: var(--spacing);
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-/* Modal for single image (card or button) */
-.hp3-modal-single {
-  position: relative;
-  max-width: 600px;
-  width: 90%;
-  max-height: 90vh;
-  background: #fff;
-  border-radius: 12px;
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 340px;
   padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
   text-align: center;
-  animation: fadeIn 0.3s ease-in-out;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-/* Popup Image */
-.hp3-popup-image {
-  max-height: 400px;
-  width: auto;
-  border-radius: 10px;
+h2 {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-weight: 700;
+  color: var(--neutral-text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+p {
+  font-size: clamp(0.75rem, 3vw, 0.85rem);
+  color: var(--neutral-subtext);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.content p:nth-of-type(2) {
+  margin-top: 4px;
+}
+
+/* Image box */
+.image-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.image {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Navigation Buttons (only for button modal) */
-.hp3-nav-buttons {
+/* Button Container - BELOW IMAGE */
+.button-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  align-items: center;
+  width: 100%;
+  gap: var(--spacing);
+  margin-top: 10px;
 }
 
-.hp3-nav-buttons button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #0f172a;
-  color: #fff;
+/* Buttons */
+button {
+  font-size: clamp(0.8rem, 3vw, 0.85rem);
+  font-weight: 600;
+  cursor: pointer;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s;
+  transition: var(--transition);
+  padding: 8px 12px;
+  min-height: 44px;
+  flex: 1;
+  max-width: 140px;
 }
 
-.hp3-nav-buttons button:hover {
-  background-color: #1e293b;
+/* View Details Button */
+.view-btn {
+  background: transparent;
+  color: var(--primary);
+  text-decoration: underline;
+  order: 1;
 }
 
-/* Close Button */
-.hp3-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
+.view-btn:hover {
+  color: var(--primary-dark);
+  text-decoration: none;
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+/* Add Button */
+.add-btn {
+  background: linear-gradient(135deg, var(--accent), #219653);
+  color: var(--white);
+  order: 2;
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #219653, var(--accent));
+  transform: scale(0.98);
+}
+
+/* Responsive: Tablet/Desktop */
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .card {
+    flex-direction: column;
+    align-items: center;
+    max-width: 360px;
+    height: auto;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  .image-box {
+    margin-top: 10px;
+  }
+
+  .button-container {
+    justify-content: center;
+  }
+
+  button {
+    max-width: 150px;
+    padding: 10px 14px;
+  }
+}
+
+/* Small Screens (≤400px) */
+@media (max-width: 400px) {
+  .card {
+    max-width: 300px;
+    padding: 0.75rem;
+  }
+
+  .image {
+    max-width: 180px;
+  }
+
+  button {
+    font-size: clamp(0.75rem, 2.5vw, 0.8rem);
+    padding: 6px 8px;
+    max-width: 120px;
   }
 }

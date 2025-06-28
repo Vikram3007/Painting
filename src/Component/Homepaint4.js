@@ -1,44 +1,32 @@
-import React, { useState } from 'react';
-import './style/Homepaint1.css';
+import React from 'react';
+import './style/Homepaint4.css';
+import Homepaint5 from './Homepaint5';
 
 const Homepaint4 = () => {
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <>
-      <div className="hp3-container">
-        <img
-          src="/clickimg2.webp"
-          alt="Previe"
-          className="hp3-image"
-          onClick={() => setShowModal(true)}
-          loading="lazy"
-        />
-      </div>
-      {showModal && (
-        <div className="hp3-backdrop" onClick={() => setShowModal(false)}>
-          <div className="hp3-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="hp3-close-btn"
-              onClick={() => setShowModal(false)}
-              aria-label="Close Modal"
-            >
-              ×
-            </button>
-            <div className="hp3-gallery-scroll">
-              {Array.from({ length: 9 }, (_, i) => (
-                <img
-                  key={i}
-                  src={`/imge${i + 1}.webp`}
-                  alt={`Gallery ${i + 1}`}
-                  className="hp3-gallery-img"
-                  loading="lazy"
-                />
-              ))}
-            </div>
-          </div>
+      <div className="hp4-wrapper">
+        <div className="hp4-content">
+          <h2 className="hp4-title">Complete Painting & Safe Room Services</h2>
+          <p className="hp4-description">
+            Experience hassle-free home transformation with our expert painting solutions. We ensure:
+          </p>
+          <ul className="hp4-list">
+            <li>✅ Interior & Exterior Full Home Painting</li>
+            <li>✅ Safe & Covered Room Setup</li>
+            <li>✅ Eco-Friendly Paints with No Odour</li>
+            <li>✅ Trained Professionals with Safety Gear</li>
+            <li>✅ Furniture Protection & Post-Cleaning</li>
+          </ul>
+          <button className="hp4-button">
+            <strong>View Details</strong>
+          </button>
         </div>
-      )}
+        <div className="hp4-image-container">
+          <img src="home1 .jpg" alt="Safe Room Setup" className="hp4-image" />
+        </div>
+      </div>
+      <Homepaint5 />
     </>
   );
 };
