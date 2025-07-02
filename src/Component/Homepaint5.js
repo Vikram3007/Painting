@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style/Homepaint5.css';
-
+import Footer from './Footer'
 const Homepaint5 = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -70,6 +70,7 @@ const Homepaint5 = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

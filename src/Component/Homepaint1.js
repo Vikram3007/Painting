@@ -8,7 +8,7 @@ const Homepaint1 = () => {
       <section className="hp1-container">
         {/* Left Side */}
         <div className="hp1-left">
-          <h1 className="hp1-title">Full Home Painting</h1>
+          <h1 className="hp1-title">Full Home Painting Services</h1>
 
           <div className="hp1-room-block">
             <img src="kitchen1.jpg" alt="Kitchen Interior" className="hp1-room-logo" />
