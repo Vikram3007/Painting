@@ -9,6 +9,7 @@ const Footer = () => {
         <div className="uc-footer-logo">
           <img src="/footer1.webp" alt="Urban Company Logo" loading="lazy" />
         </div>
+
         <div className="uc-footer-col">
           <h3>Company</h3>
           <ul>
@@ -21,6 +22,7 @@ const Footer = () => {
             <li><a href="/careers">Careers</a></li>
           </ul>
         </div>
+
         <div className="uc-footer-col">
           <h3>For customers</h3>
           <ul>
@@ -29,11 +31,13 @@ const Footer = () => {
             <li><a href="/contact">Contact us</a></li>
           </ul>
         </div>
+
         <div className="uc-footer-col">
           <h3>For professionals</h3>
           <ul>
             <li><a href="/register">Register as a professional</a></li>
           </ul>
+
           <h3 className="uc-footer-social-title">Social links</h3>
           <div className="uc-footer-social">
             <Twitter className="uc-icon twitter" aria-label="Twitter" />
@@ -41,10 +45,12 @@ const Footer = () => {
             <Instagram className="uc-icon instagram" aria-label="Instagram" />
             <Linkedin className="uc-icon linkedin" aria-label="LinkedIn" />
           </div>
+
           <div className="uc-footer-apps">
             <img src="/footer2.webp" alt="Download on App Store" loading="lazy" />
             <img src="/footer3.webp" alt="Get it on Google Play" loading="lazy" />
           </div>
+
           <h3 className="uc-footer-social-title">Subscribe</h3>
           <input
             type="email"
@@ -55,6 +61,7 @@ const Footer = () => {
           <button className="newsletter-btn">Subscribe</button>
         </div>
       </div>
+
       <div className="uc-footer-bottom">
         <p>* As on December 31, 2024</p>
         <p className="uc-footer-copy">
